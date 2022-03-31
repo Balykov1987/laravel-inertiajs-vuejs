@@ -1,0 +1,29 @@
+<template>
+    <Head :title="title"/>
+    <h1>{{ title }}</h1>
+
+    <div v-if="users.total > 0" class="users">
+        <div v-for="user in users.data" class="user flex" :key="user.id">
+            <div class="name">{{ user.name }}</div>
+            <div class="mail">{{ user.email }}</div>
+        </div>
+    </div>
+
+    <div v-else class="not">No users</div>
+
+</template>
+
+<script>
+
+import {Head} from '@inertiajs/inertia-vue3'
+
+export default {
+    components: {
+        Head
+    },
+    props: {
+        title: String,
+        users: Array,
+    },
+}
+</script>
